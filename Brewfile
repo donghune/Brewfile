@@ -1,253 +1,86 @@
 #############################################################
-# ~/.Brewfile - Software Installs for MacOS                 #
-#                                                           #
-# List of packages to be installed / updated via Homebrew   #
-# Apps are sorted by category, and arranged alphabetically  #
-# Be sure to delete / comment out anything you do not need  #
-# Usage, run: $ brew bundle --global --file $HOME/.Brewfile #
-# Source GH repository: https://github.com/lissy93/Brewfile #
-# See brew docs for more info: https://docs.brew.sh/Manpage #
-#                                                           #
-# License: MIT © Alicia Sykes 2022 <https://aliciasykes.com>#
+# 안드로이드 개발자 및 macOS 생산성 도구 목록 (Brewfile 발췌) #
+#                                                            #
+# 안드로이드 개발과 macOS 환경에서 필요한 도구만 간추렸습니다. #
+# 설치: $ brew bundle --file $HOME/.Brewfile                 #
 #############################################################
 
-# Options
-cask_args appdir: '~/Applications', require_sha: true
-
-# Taps
-tap 'homebrew/bundle'
-tap 'homebrew/core'
-tap 'homebrew/services'
-tap 'blacktop/tap'
-tap 'browsh-org/homebrew-browsh'
-tap 'espanso/espanso'
-tap 'jesseduffield/lazygit'
-tap 'koekeishiya/formulae'
-tap 'kdash-rs/kdash'
+# 기본 옵션 설정
+cask_args appdir: '~/Applications', require_sha: true  # 앱 설치 경로 및 보안 검증 설정
 
 #############################################################
-# Command Line                                              #
+# 추가 저장소 (Taps)                                         #
 #############################################################
-
-# CLI Essentials
-brew 'git'          # Version controll
-brew 'neovim'       # Text editor
-brew 'ranger'       # Directory browser
-brew 'tmux'         # Term multiplexer
-
-# CLI Basics
-brew 'aria2'        # Resuming download util (better wget)
-brew 'bat'          # Output highlighting (better cat)
-brew 'broot'        # Interactive directory navigation
-brew 'ctags'        # Indexing of file info + headers
-brew 'diff-so-fancy'# Readable file compares (better diff)
-brew 'duf'          # Get info on mounted disks (better df)
-brew 'entr'         # Run command whenever file changes
-brew 'exa'          # Listing files with info (better ls)
-brew 'exiftool'     # Read, write and modify exif data
-brew 'fzf'          # Fuzzy file finder and filtering
-brew 'hyperfine'    # Benchmarking for arbitrary commands
-brew 'jdupes'       # Duplicate file finder
-brew 'just'         # Powerful command runner (better make)
-brew 'jq'           # JSON parser, output and query files
-brew 'most'         # Multi-window scroll pager (better less)
-brew 'procs'        # Advanced process viewer (better ps)
-brew 'ripgrep'      # Searching within files (better grep)
-brew 'rsync'        # Fast incremental file transfer
-brew 'sd'           # RegEx find and replace (better sed)
-brew 'thefuck'      # Auto-correct miss-typed commands
-brew 'tldr'         # Community-maintained docs (better man)
-brew 'tokei'        # Count lines of code (better cloc)
-brew 'tree'         # Directory listings as tree structure
-brew 'trash-cli'    # Record and restore removed files
-brew 'watch'        # Run commands periorically
-brew 'xsel'         # Copy paste access to the X clipboard
-brew 'zoxide'       # Auto-learning navigation (better cd)
-
-# CLI Monitoring and Performance Apps
-brew 'bmon'         # Bandwidth utilization monitor 
-brew 'ctop'         # Container metrics and monitoring
-brew 'dog'          # DNS lookup client (better dig)
-brew 'bpytop'       # Resource monitoring (like htop)
-brew 'dua-cli'      # Disk usage analyzer and monitor (better du)
-brew 'glances'      # Resource monitor + web and API
-brew 'goaccess'     # Web log analyzer and viewer
-brew 'gping'        # Interactive ping tool, with graph
-brew 'speedtest-cli'# Command line speed test utility
-
-# CLI Productivity Apps
-brew 'aspell'       # Spell check
-brew 'browsh'       # Web browser, in terminal
-brew 'buku'         # Bookmark manager
-brew 'cmus'         # Music player
-brew 'cointop'      # Crypto prices and portfolio
-brew 'ddgr'         # Web search, via DuckDuckGo
-brew 'khal'         # Calendar client
-brew 'mutt'         # Email client
-brew 'newsboat'     # RSS / ATOM reader
-brew 'pass'         # Password store
-brew 'rclone'       # Manage cloud storage
-brew 'task'         # Todo + task management
-
-# CLI Development Suits
-brew 'httpie'       # HTTP / API testing testing client
-brew 'lazydocker'   # Full Docker management app
-brew 'lazygit'      # Full Git management app
-brew 'kdash'        # Kubernetes management
-
-# CLI External Sercvices
-cask 'ngrok'        # Reverse proxy for sharing localhost
-brew 'tmate'        # Share a terminal session via internet
-brew 'asciinema'    # Recording + sharing terminal sessions
-brew 'navi'         # Browse, search, read cheat sheets
-
-# CLI Fun
-brew 'cowsay'       # Have an ASCII cow say your message
-brew 'figlet'       # Output text as big ASCII art text
-brew 'lolcat'       # Make console output rainbow colored
-brew 'neofetch'     # Show system data and ditstro info
-brew 'pipes-sh'     # Cool terminal pipe screen saver
-brew 'pv'           # Pipe viewer, with animation options
+tap 'homebrew/bundle'       # Brewfile 사용을 위한 번들 탭 추가
+tap 'homebrew/core'         # Homebrew 기본 패키지 저장소
+tap 'homebrew/services'     # macOS 서비스 관리 지원
 
 #############################################################
-# Software Development                                      #
+# 안드로이드 개발 도구                                        #
 #############################################################
 
-# Development Apps
-cask 'android-studio' # IDE for Android development
-cask 'boop'           # Text transformation tool
-brew 'gradle'         # Build automation for Java
-cask 'iterm2'         # Better terminal emulator
-cask 'postman'        # HTTP API testing app
-cask 'sourcetree'     # Git visual client
-cask 'visual-studio-code' # Code editor
+# 개발 환경 및 SDK
+cask 'android-studio'       # 안드로이드 앱 개발용 IDE
+cask 'android-sdk'          # 안드로이드 SDK
+brew 'gradle'               # 자바 빌드 자동화 도구
+brew 'openjdk'              # 자바 개발 키트 (안드로이드 개발에 필수)
 
-# Development Langs, Compilers, Package Managers and SDKs
-brew 'gcc'            # GNU C++ compilers
-brew 'go'             # Compiler for Go Lang
-brew 'lua'            # Lua interpreter
-brew 'luarocks'       # Package manager for Lua
-brew 'node'           # Node.js
-brew 'nvm'            # Switching node versions
-brew 'openjdk'        # Java development kit
-brew 'python'         # Python interpreter
-brew 'rust'           # Rust language
-cask 'android-sdk'    # Android software dev kit
+# 버전 관리 및 협업 도구
+brew 'git'                  # 버전 관리 도구
+cask 'sourcetree'           # Git GUI 클라이언트
+brew 'gh'                   # GitHub CLI 도구
+brew 'git-extras'           # 추가 Git 명령어 모음
 
-# DevOps
-brew 'ansible'        # Automation
-brew 'docker'         # Containers
+# 터미널 및 쉘 환경
+cask 'iterm2'               # 개선된 터미널 에뮬레이터
+brew 'zsh'                  # 강력한 쉘 환경 (기본 bash 대체)
+brew 'tmux'                 # 터미널 세션 다중화 도구
+brew 'fzf'                  # 퍼지 검색 및 파일 탐색 도구
+brew 'ripgrep'              # 빠른 파일 내 검색 도구
+brew 'tldr'                 # 간단한 명령어 설명서
+brew 'thefuck'              # 잘못 입력한 명령어 자동 수정 도구
+cask 'raycast'              # 빠른 앱 실행 및 전역 검색 도구
 
-# Development Utils
-brew 'gh'             # Interact with GitHub PRs, issues, repos
-brew 'git-extras'     # Extra git commands for common tasks
-brew 'scrcpy'         # Display and control Android devices
-brew 'terminal-notifier' # Trigger Mac notifications from terminal
-brew 'tig'            # Text-mode interface for git
-brew 'ttygif'         # Generate GIF from terminal commands + output
-brew 'watchman'       # Watch for changes and reload dev server
+# 안드로이드 디바이스 관리 및 디버깅 도구
+brew 'scrcpy'               # 안드로이드 화면 미러링 및 제어 도구
+brew 'watchman'             # 파일 변경 감지 및 핫리로드 지원
+brew 'adb'                  # Android Debug Bridge (필수 디버깅 도구)
 
-# Network and Security Testing
-brew 'bettercap'      # Network, scanning and monitoring
-brew 'nmap'           # Port scanning
-brew 'wrk'            # HTTP benchmarking
-cask 'burp-suite'     # Web security testing
-cask 'owasp-zap'      # Web app security scanner
-cask 'wireshark'      # Network analyzer + packet capture
+# API 및 네트워크 도구
+cask 'postman'              # API 테스트 및 개발 도구
+brew 'httpie'               # 간단한 HTTP 클라이언트 (API 테스트에 유용)
 
-# Security Utilities and Data Encryption
-brew 'bcrypt'         # Encryption utility, using blowfish
-brew 'borgbackup'     # Encrypted, deduplicated backups
-brew 'clamav'         # Open source virus scanning suite
-brew 'dnscrypt-proxy' # Proxy for using encrypted DNS
-cask 'gpg-suite'      # PGP encryption for emails and files
-brew 'git-crypt'      # Transparent encryption for git repos
-brew 'lynis'          # Scan system for common security issues
-brew 'openssl'        # Cryptography and SSL/TLS Toolkit
-brew 'rkhunter'       # Search / detect potential root kits
-cask 'veracrypt'      # File and volume encryption
+# 코드 편집 및 기타 편의 도구
+cask 'visual-studio-code'   # 코드 편집기 (Android Studio 대체 또는 보완)
+cask 'boop'                 # 텍스트 변환 도구 (빠른 데이터 처리에 유용)
 
 #############################################################
-# Desktop Applications                                      #
+# macOS 생산성 및 데스크톱 애플리케이션 추가                  #
 #############################################################
 
-# Creativity
-cask 'audacity'     # Audio editor / recorder
-cask 'gimp'         # Photo editor
-brew 'handbrake'    # Video transcoder
-cask 'inkscape'     # Vector editor
-cask 'obs'          # Screencasting / recording
-cask 'shotcut'      # Video editor
+# 개발 및 디자인 관련 도구
+cask 'intellij-idea'        # 전문적인 Java 및 멀티랭귀지 IDE
+cask 'figma'                # UI/UX 디자인 협업 도구
+cask 'sublime-text'         # 가벼운 코드 및 텍스트 편집기
 
-# Media
-cask 'calibre'      # E-Book reader
-cask 'spotify', args: { require_sha: false } # Propietary music streaming
-cask 'transmission' # Torrent client
-cask 'vlc'          # Media player
-brew 'pandoc'       # Universal file converter
-brew 'youtube-dl'   # YouTube video downloader
+# 커뮤니케이션 및 작업 관리
+mas 'Slack', id: 803453959  # 팀 커뮤니케이션 및 협업 도구
+mas '카카오톡', id: 869223134 # 카카오톡 메신저 (팀 및 개인 커뮤니케이션)
+cask 'notion'               # 메모 및 작업 관리 도구
 
-# Personal Applications
-cask '1password'      # Password manager (proprietary)
-cask 'tresorit'       # Encrypted file backup (proprietary)
-cask 'standard-notes' # Encrypted synced notes
-cask 'signal'         # Link to encrypted mobile messenger
-cask 'ledger-live'    # Crypto hardware wallet manager
-cask 'mountain-duck'  # Mount remote storage locations
-cask 'protonmail-bridge' # Decrypt ProtonMail emails
-cask 'protonvpn'      # Client app for ProtonVPN
-cask 'vorta'          # GUI for BorgBackup
-
-# Browsers
-cask 'firefox'
-cask 'chromium'
-cask 'orion'
+# macOS 유틸리티 및 생산성 앱
+mas '반디집', id: 1265704574 # 빠르고 가벼운 압축/해제 프로그램
+cask 'alfred'               # 강력한 워크플로와 빠른 실행 도구
+cask 'magnet'               # 창 정렬 및 분할 화면 기능 제공
+mas 'Xcode', id: 497799835  # macOS 및 iOS 개발용 공식 IDE
+cask 'google-chrome'        # 빠르고 안전한 웹 브라우저
 
 #############################################################
-# MacOS-Specific Stuff                                      #
+# 선택적 추가 도구 (개발 및 개인 생산성 향상)                #
 #############################################################
-
-# Fonts
-tap 'homebrew/cask-fonts'
-cask 'font-fira-code'
-cask 'font-hack'
-cask 'font-inconsolata'
-cask 'font-meslo-lg-nerd-font'
-
-# Mac OS Quick-Look Plugins
-cask 'qlcolorcode'    # QL for code with highlighting
-cask 'qlimagesize'    # QL for size info for images
-cask 'qlmarkdown'     # QL for markdown files
-cask 'qlprettypatch'  # QL for patch / diff files
-cask 'qlstephen'      # QL for dev text files
-cask 'qlvideo'        # QL for video formats
-cask 'quicklook-csv'  # QL for tables in CSV format
-cask 'quicklook-json', args: { require_sha: false } # QL for JSON, with trees
-cask 'quicklookapk',   args: { require_sha: false } # QL for Android APKs
-cask 'webpquicklook',  args: { require_sha: false } # QL for WebP image files
-
-# Mac OS Mods and Imrovments
-cask 'alt-tab'        # Much better alt-tab window switcher
-cask 'anybar'         # Custom programmatic menubar icons
-cask 'copyq'          # Clipboard manager (cross platform)
-cask 'espanso'        # Live text expander (cross-platform)
-cask 'finicky'        # Website-specific default browser
-cask 'hiddenbar'      # Hide / show annoying menubar icons
-brew 'iproute2mac'    # MacOS port of netstat and ifconfig
-brew 'lporg'          # Backup and restore launchpad layout
-brew 'm-cli'          # All in one MacOS management CLI app
-cask 'mjolnir'        # Util for loading Lua automations
-cask 'openinterminal' # Finder button, opens directory in terminal
-cask 'raycast', args: { require_sha: false }  # Spotlight alternative
-cask 'santa'          # Binary authorization for security
-cask 'shottr'         # Better screenshot utility
-brew 'skhd'           # Hotkey daemon for macOS
-cask 'stats'          # System resource usage in menubar
-brew 'yabai'          # Tiling window manager
-
-# Mac OS Utility Apps
-cask 'coteditor'      # Just a simple plain-text editor
-cask 'little-snitch'  # Firewall app viewing / blocking traffic
-cask 'keka'           # File archiver and extractor
+#brew 'node'                # Node.js (React Native나 하이브리드 앱 개발 시)
+#brew 'python'              # 파이썬 스크립트 실행 및 자동화
+#cask 'docker'              # 컨테이너 기반 개발 환경 구축 시 사용
+#brew 'jq'                  # JSON 데이터 처리 도구 (API 응답 처리에 유용)
 
 # EOF
